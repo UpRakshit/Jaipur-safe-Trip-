@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f3eb">
+  <meta name="description" content="A thoughtful guide to Jaipur's landmarks, local flavours and a simple self-guided trip plan.">
+  <title>Jaipur SafeTrip — Find your way through the Pink City</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=royal-20261027-3">
+  <script src="js/data.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="Jaipur SafeTrip home"><span class="brand-mark" aria-hidden="true">J</span><span>Jaipur <span class="brand-light">SafeTrip</span></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation"><span></span><span></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="#places">Places</a><a href="#food">Local flavours</a><a href="#planner">Plan a visit</a><a href="#chat">Travel chat</a>
+        <a class="nav-cta" href="#planner">Build your day <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <img class="hero-image" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hawa%20Mahal%2C%20Jaipur%2C%20India.jpg?width=1800" alt="Hawa Mahal's rose-coloured façade in Jaipur" fetchpriority="high">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow light">A guide to Jaipur, Rajasthan</p>
+        <h1 id="hero-title">A city made<br>to be <em>discovered.</em></h1>
+        <p class="hero-copy">From the honeycomb windows of Hawa Mahal to the first bite of a warm kachori, find the details that make Jaipur unforgettable.</p>
+        <a class="button button-light" href="#places">Explore the city <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-caption">Hawa Mahal · Jaipur</div>
+      <div class="hero-index" aria-hidden="true"><span>26° 55′ N</span><span class="index-rule"></span><span>75° 49′ E</span></div>
+    </section>
+
+    <section class="intro section-wrap" aria-labelledby="intro-title">
+      <p class="eyebrow">The Pink City, at your own pace</p>
+      <div class="intro-grid"><h2 id="intro-title">A little local knowledge<br>goes a <em>long way.</em></h2><p>Jaipur rewards a slower look. Start with the landmarks, leave room for a market detour, and follow the scent of something just out of the oven. This guide brings the essentials together in one place.</p></div>
+    </section>
+
+    <section class="content-section places-section" id="places" aria-labelledby="places-title">
+      <div class="section-wrap">
+        <div class="section-heading"><div><p class="eyebrow">Stone, light &amp; living history</p><h2 id="places-title">Places worth<br><em>looking closer.</em></h2></div><p class="heading-note">A first look at Jaipur's most recognisable landmarks. Select a place for context and a useful starting point.</p></div>
+        <div class="card-grid" id="places-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="food-section" id="food" aria-labelledby="food-title">
+      <div class="food-top section-wrap"><div><p class="eyebrow light">A taste of Rajasthan</p><h2 id="food-title">Come hungry.<br><em>Leave curious.</em></h2></div><p>Jaipur's food tells its own story: practical desert cooking, festive sweets, and beloved snacks made for the walk between stops.</p></div>
+      <div class="food-grid section-wrap" id="food-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="planner-section" id="planner" aria-labelledby="planner-title">
+      <div class="planner-wrap">
+        <div class="planner-copy"><p class="eyebrow">A simple starting point</p><h2 id="planner-title">Make room for<br><em>the unexpected.</em></h2><p>Choose the kind of Jaipur trip you want, then select any of the six original tourism interests. Your outline is built here from the guide's known places and clearly labeled planning ideas.</p><div class="planner-note"><span class="note-line"></span><span>Suggested slots are not verified opening hours or travel times. Confirm current details and access arrangements locally.</span></div></div>
+        <form class="planner-form" id="planner-form">
+          <div class="planner-preferences">
+            <div class="planner-field"><label for="trip-days">Trip duration</label><select id="trip-days" name="days"><option value="1">1 day</option><option value="2" selected>2 days</option><option value="3">3 days</option><option value="4">4 days</option><option value="5">5 days</option></select></div>
+            <div class="planner-field"><label for="trip-budget">Budget style</label><select id="trip-budget" name="budget"><option value="modest">Modest · ₹2,000–5,000/day</option><option value="balanced" selected>Balanced · ₹5,000–10,000/day</option><option value="comfort">Comfort · ₹10,000–25,000/day</option></select></div>
+            <div class="planner-field"><label for="trip-group">Group size</label><select id="trip-group" name="group"><option value="solo">Solo</option><option value="pair" selected>Two travellers</option><option value="small">3–5 travellers</option><option value="large">6 or more</option></select></div>
+            <div class="planner-field"><label for="trip-stay">Stay preference</label><select id="trip-stay" name="stay"><option value="any">No preference</option><option value="guesthouse">Guesthouse or simple stay</option><option value="hotel">Hotel</option><option value="heritage">Heritage property</option></select></div>
+            <div class="planner-field"><label for="trip-purpose">Trip purpose</label><select id="trip-purpose" name="purpose"><option value="culture" selected>Cultural exploration</option><option value="family">Family vacation</option><option value="romantic">Romantic getaway</option><option value="shopping">Shopping trip</option><option value="food">Food tour</option><option value="adventure">Adventure</option><option value="relaxation">Relaxation</option><option value="photography">Photography</option><option value="budget">Budget travel</option></select></div>
+            <div class="planner-field"><label for="trip-pace">Pace</label><select id="trip-pace" name="pace"><option value="relaxed">Relaxed · room to pause</option><option value="balanced" selected>Balanced · steady days</option><option value="full">Full · more planned stops</option></select></div>
+            <div class="planner-field planner-field-wide"><label for="trip-access">Accessibility or mobility preference <span>(optional)</span></label><select id="trip-access" name="access"><option value="none" selected>No specific request</option><option value="lower-walking">Prefer less walking or fewer stairs</option><option value="step-free">Prioritize step-free access information</option><option value="wheelchair">Prioritize wheelchair access information</option></select></div>
+          </div>
+          <fieldset class="planner-interests"><legend>Choose what interests you</legend><div class="interest-grid">
+            <label class="interest-option"><input type="checkbox" name="interest" value="heritage" checked><span class="interest-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 27h24M7 26V13l9-7 9 7v13M11 26v-8h10v8M13 12h.1M19 12h.1"/></svg></span><span><strong>Historical Monuments &amp; Heritage</strong><small>Forts, palaces and the observatory</small></span></label>
+            <label class="interest-option"><input type="checkbox" name="interest" value="food" checked><span class="interest-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 18h22a11 11 0 0 1-22 0ZM8 14c2-2 4-2 6 0m3 0c2-2 4-2 6 0M16 5v4"/></svg></span><span><strong>Rajasthani Cuisine &amp; Food Experiences</strong><small>Regional dishes, sweets and snacks</small></span></label>
+            <label class="interest-option"><input type="checkbox" name="interest" value="hotels"><span class="interest-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 27h24M7 26V12l9-7 9 7v14M12 26v-8h8v8M14 12h4M14 7v4m-3 5h.1m10 0h.1"/></svg></span><span><strong>Heritage Hotels &amp; Royal Stays</strong><small>Royal-hotel inspiration; compare current rates</small></span></label>
+            <label class="interest-option"><input type="checkbox" name="interest" value="shopping"><span class="interest-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 13h22l-2-7H7l-2 7Zm2 0v13h18V13M12 26v-8h8v8M5 13a4 4 0 0 0 8 0 4 4 0 0 0 8 0 4 4 0 0 0 8 0"/></svg></span><span><strong>Shopping, Local Markets &amp; Crafts</strong><small>Johari Bazaar and traditional crafts</small></span></label>
+            <label class="interest-option"><input type="checkbox" name="interest" value="adventure"><span class="interest-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m3 26 9-14 6 8 4-6 7 12H3Zm5-17h.1M23 8h.1"/></svg></span><span><strong>Adventure &amp; Outdoor Activities</strong><small>Hill-fort walks, viewpoints and open-air stops</small></span></label>
+            <label class="interest-option"><input type="checkbox" name="interest" value="wellness"><span class="interest-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 27c-7-3-10-8-9-15 5 0 8 2 9 7 1-5 4-7 9-7 1 7-2 12-9 15Zm0 0V17m-9-5 5 5m13-5-5 5"/></svg></span><span><strong>Wellness, Spa &amp; Relaxation</strong><small>Reserve restorative time; verify providers and access</small></span></label>
+          </div></fieldset>
+          <button class="button button-dark" type="submit">Build my itinerary <span aria-hidden="true">↗</span></button>
+          <p class="form-note" id="planner-message" role="status"></p>
+          <section class="plan-result" id="plan-result" hidden aria-live="polite" aria-labelledby="plan-title"></section>
+        </form>
+      </div>
+    </section>
+    <section class="visit-note" aria-label="Travel note"><div class="section-wrap visit-inner"><span class="visit-number">01</span><p><strong>Travel thoughtfully.</strong> Jaipur SafeTrip is an independent discovery guide. It does not provide live safety monitoring, emergency response, or real-time travel updates. For urgent help, contact local authorities.</p><a href="#home" class="back-top">Back to top ↑</a></div></section>
+    <section class="chat-section" id="chat" aria-labelledby="chat-title"><div class="chat-wrap"><div class="chat-intro"><p class="eyebrow">Jaipur travel assistant</p><h2 id="chat-title">A question about<br><em>the Pink City?</em></h2><p>Ask about attractions, cuisine, stays or trip planning. When a secure service is connected, replies come from that service; without one, your question is kept in this session and clearly marked as unsent.</p><span class="chat-status"><span class="status-dot"></span><span id="chat-connection">Secure AI service not configured</span></span></div><div class="chat-panel"><p class="chat-panel-title">Jaipur travel chat</p><div class="chat-prompts" aria-label="Suggested questions"><button type="button" data-prompt="What should I know before visiting Amer Fort?">Heritage sites</button><button type="button" data-prompt="Which Rajasthani dishes should I try in Jaipur?">Food experiences</button><button type="button" data-prompt="What should I look for when choosing a heritage hotel in Jaipur?">Royal stays</button><button type="button" data-prompt="Where can I shop for local crafts in Jaipur?">Markets and crafts</button><button type="button" data-prompt="Suggest outdoor activities around Jaipur without inventing current prices or availability.">Outdoor activities</button><button type="button" data-prompt="How can I plan a relaxed wellness break in Jaipur, and what should I verify with a provider?">Wellness and relaxation</button><button type="button" data-prompt="Suggest a two-day Jaipur itinerary for a couple and ask how I want to refine it.">Refine an itinerary</button></div><div class="chat-history" id="chat-history" role="log" aria-live="polite" aria-relevant="additions text"></div><form id="chat-form" class="chat-form"><label class="sr-only" for="chat-question">Your Jaipur travel question</label><textarea id="chat-question" name="question" rows="2" maxlength="800" placeholder="Ask about attractions, food, hotels or travel tips…"></textarea><div class="chat-send-row"><span id="chat-message" role="status">Messages stay in this browser session. No question is sent until a secure endpoint is configured.</span><button class="button button-dark" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 18-8-7 18-3-7-8-3Zm8 3 4-4"/></svg><span>Send</span></button></div></form><p class="chat-setup-note">Replies require a server endpoint. Keep the model key on the server; never add it to browser code.</p></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true">J</span><span>Jaipur <span class="brand-light">SafeTrip</span></span></a><p>A considered guide to the Pink City.</p><div class="footer-bottom"><span>© <span id="year"></span> Jaipur SafeTrip</span><a href="https://commons.wikimedia.org/" target="_blank" rel="noreferrer">Photographs via Wikimedia Commons ↗</a></div></div></footer>
+
+  <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="dialog-title">
+    <button class="dialog-close" type="button" aria-label="Close details">×</button>
+    <div class="dialog-media"><img id="dialog-image" src="" alt=""></div>
+    <div class="dialog-body"><p class="eyebrow" id="dialog-kicker"></p><h2 id="dialog-title"></h2><p class="dialog-description" id="dialog-description"></p><p class="dialog-tip" id="dialog-tip"></p></div>
+  </dialog>
+</body>
+</html>
